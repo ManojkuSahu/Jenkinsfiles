@@ -1,10 +1,10 @@
 node{
 
-  git branch: "master", url: "https://github.com/robsonbittencourt/jenkins-pipeline-example" 
+  git branch: "master", url: "https://github.com/robsonbittencourt/jenkins-pipeline-ms" 
 
   stage ('Build and Deploy UAT image') {
-    sh "docker tag localhost:5000/jenkins-pipeline-example:dsv localhost:5000/jenkins-pipeline-example:uat"
-    sh "docker push localhost:5000/jenkins-pipeline-example:uat"
+    sh "docker tag localhost:5000/jenkins-pipeline-example:dsv localhost:5000/jenkins-pipeline-ms:uat"
+    sh "docker push localhost:5000/jenkins-pipeline-ms:uat"
   }
 
   stage ('Deploy app in UAT') {
@@ -19,8 +19,8 @@ node{
   }
 
   stage ('Build and Deploy PRD image') {
-    sh "docker tag localhost:5000/jenkins-pipeline-example:uat localhost:5000/jenkins-pipeline-example:prd"
-    sh "docker push localhost:5000/jenkins-pipeline-example:prd"
+    sh "docker tag localhost:5000/jenkins-pipeline-example:uat localhost:5000/jenkins-pipeline-ms:prd"
+    sh "docker push localhost:5000/jenkins-pipeline-ms:prd"
   }
 
   stage ('Deploy app in PRD') {
